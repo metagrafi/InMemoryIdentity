@@ -7,19 +7,19 @@ The following are the steps to InMemoryIdentity...
 
 1. Create your custom ApplicationUser, in Models\IdentityModels
 
-	public class ApplicationUser : IUser
-    {
-        public string Id { get; set; }
-        public string UserName { get; set; }
+		public class ApplicationUser : IUser
+	    {
+	        public string Id { get; set; }
+	        public string UserName { get; set; }
 
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
-        {
-            
-            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-            
-            return userIdentity;
-        }
-    }
+	        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+	        {
+	            
+	            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+	            
+	            return userIdentity;
+	        }
+	    }
 
 2. Replace the contents of IdentityConfig.cs in App_Start folder.
 
